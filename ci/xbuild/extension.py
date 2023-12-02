@@ -25,11 +25,10 @@ import glob
 import json
 import os
 import re
-import subprocess
 import sysconfig
 import time
 
-from .logger import Logger0, Logger3
+from .logger import Logger0
 from .compiler import Compiler
 
 rx_include = re.compile(r'\s*#\s*include\s*"([^"]+)"')
@@ -344,7 +343,7 @@ class Extension:
     def pyabi(self):
         """
         Python `SOABI` config variable, which may look something like
-        'cpython-37m-darwin'. If this does not correspond to the value
+        'cpython-38m-darwin'. If this does not correspond to the value
         stored in .xbuild, then all sources will be rebuilt.
         """
         return sysconfig.get_config_var("SOABI")
